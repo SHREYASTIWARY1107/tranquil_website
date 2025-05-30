@@ -1,4 +1,42 @@
-# Welcome to your Lovable project
+# Tranquil AI
+
+Welcome to Tranquil AI - Your AI Companion
+
+## About
+
+Tranquil AI is a powerful AI platform designed to enhance your productivity and creativity.
+
+## Development
+
+### Local Development
+
+To run the project locally:
+
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+```
+3. Start the development server:
+```bash
+npm run dev
+```
+
+### Building for Production
+
+To build the project for production:
+
+```bash
+npm run build
+```
+
+### Deployment
+
+The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
+## Custom Domain Setup
+
+The project is configured to use a custom domain. The site is accessible at [tranquilai.in](https://tranquilai.in).
 
 ## Project info
 
