@@ -13,6 +13,10 @@ export default defineConfig(({ mode }) => ({
     }
   },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    copyPublicDir: true,
+    sourcemap: mode === 'development',
     rollupOptions: {
       output: {
         assetFileNames: 'assets/[name].[ext]',
@@ -29,4 +33,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  publicDir: 'public',
 }));

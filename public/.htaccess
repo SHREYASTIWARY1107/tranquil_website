@@ -1,11 +1,25 @@
 # Serve Apple Pay verification file with correct MIME type
 <Files "apple-developer-merchantid-domain-association">
     ForceType text/plain
+    Header set Content-Type "text/plain"
+    Header set Access-Control-Allow-Origin "*"
 </Files>
 
-# Enable CORS for .well-known directory
-<IfModule mod_headers.c>
-    <FilesMatch "^\.well-known/.*">
-        Header set Access-Control-Allow-Origin "*"
-    </FilesMatch>
+# Prevent directory listing
+Options -Indexes
+
+# Handle 404s
+ErrorDocument 404 /404.html
+
+# Ensure .well-known directory is accessible
+<Directory ".well-known">
+    Options -Indexes
+    Allow from all
+    Require all granted
+</Directory>
+
+# Prevent redirects for .well-known directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^\.well-known/ - [L]
 </IfModule> 
