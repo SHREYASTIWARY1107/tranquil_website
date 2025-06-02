@@ -6,13 +6,15 @@
     <script>
       (function() {
         const path = window.location.pathname;
-        if (path === '/.well-known/apple-developer-merchantid-domain-association') {
+        if (path === '/.well-known/apple-developer-merchantid-domain-association.txt') {
           // Fetch and display the verification file content
-          fetch('/apple-developer-merchantid-domain-association.txt')
+          fetch('/.well-known/apple-developer-merchantid-domain-association.txt')
             .then(response => response.text())
             .then(content => {
               document.body.innerHTML = '<pre>' + content + '</pre>';
               document.contentType = 'text/plain';
+              document.querySelector('pre').style.whiteSpace = 'pre-wrap';
+              document.querySelector('pre').style.wordBreak = 'break-all';
             })
             .catch(() => {
               window.location.href = '/';

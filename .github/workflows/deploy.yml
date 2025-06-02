@@ -30,8 +30,9 @@ jobs:
       - name: Prepare .well-known directory
         run: |
           mkdir -p dist/.well-known
-          cp public/.well-known/apple-developer-merchantid-domain-association dist/.well-known/
-          cp public/apple-developer-merchantid-domain-association.txt dist/
+          cp public/.well-known/apple-developer-merchantid-domain-association.txt dist/.well-known/
+          # Ensure the file is accessible and has correct permissions
+          chmod 644 dist/.well-known/apple-developer-merchantid-domain-association.txt
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
