@@ -27,6 +27,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Prepare .well-known directory
+        run: |
+          mkdir -p dist/.well-known
+          cp public/.well-known/apple-developer-merchantid-domain-association dist/.well-known/
+          cp public/apple-developer-merchantid-domain-association.txt dist/
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
