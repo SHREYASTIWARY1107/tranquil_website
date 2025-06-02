@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import type { Connect } from 'vite';
 import type { ServerResponse, IncomingMessage } from 'http';
+import fs from 'fs';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -15,8 +16,16 @@ export default defineConfig(({ mode }) => ({
     },
     middleware: [
       (req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
-        if (req.url?.startsWith('/.well-known/')) {
-          res.setHeader('Content-Type', 'text/plain');
+        if (req.url === '/.well-known/apple-developer-merchantid-domain-association') {
+          const filePath = path.join(__dirname, 'public/.well-known/apple-developer-merchantid-domain-association');
+          try {
+            const content = fs.readFileSync(filePath, 'utf-8');
+            res.setHeader('Content-Type', 'text/plain');
+            res.end(content);
+            return;
+          } catch (error) {
+            console.error('Error reading verification file:', error);
+          }
         }
         next();
       }
@@ -41,18 +50,26 @@ export default defineConfig(({ mode }) => ({
     }
   },
   plugins: [
-    react(),
     {
       name: 'handle-well-known',
       configureServer(server) {
         server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
-          if (req.url?.startsWith('/.well-known/')) {
-            res.setHeader('Content-Type', 'text/plain');
+          if (req.url === '/.well-known/apple-developer-merchantid-domain-association') {
+            const filePath = path.join(__dirname, 'public/.well-known/apple-developer-merchantid-domain-association');
+            try {
+              const content = fs.readFileSync(filePath, 'utf-8');
+              res.setHeader('Content-Type', 'text/plain');
+              res.end(content);
+              return;
+            } catch (error) {
+              console.error('Error reading verification file:', error);
+            }
           }
           next();
         });
       }
-    }
+    },
+    react()
   ],
   resolve: {
     alias: {
