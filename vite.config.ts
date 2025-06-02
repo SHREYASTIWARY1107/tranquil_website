@@ -10,7 +10,15 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     headers: {
       'Content-Type': 'text/plain'
-    }
+    },
+    middleware: [
+      (req, res, next) => {
+        if (req.url?.startsWith('/.well-known/')) {
+          res.setHeader('Content-Type', 'text/plain');
+        }
+        next();
+      }
+    ]
   },
   build: {
     outDir: 'dist',
@@ -19,7 +27,12 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === 'development',
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[ext]',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.includes('.well-known')) {
+            return '[name].[ext]';
+          }
+          return 'assets/[name].[ext]';
+        },
         chunkFileNames: 'assets/[name].js',
         entryFileNames: 'assets/[name].js',
       }
@@ -27,6 +40,17 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    {
+      name: 'handle-well-known',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url?.startsWith('/.well-known/')) {
+            res.setHeader('Content-Type', 'text/plain');
+          }
+          next();
+        });
+      }
+    }
   ],
   resolve: {
     alias: {
