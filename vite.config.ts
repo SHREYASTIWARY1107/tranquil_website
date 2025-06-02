@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import type { Connect } from 'vite';
+import type { ServerResponse, IncomingMessage } from 'http';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,7 +14,7 @@ export default defineConfig(({ mode }) => ({
       'Content-Type': 'text/plain'
     },
     middleware: [
-      (req, res, next) => {
+      (req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
         if (req.url?.startsWith('/.well-known/')) {
           res.setHeader('Content-Type', 'text/plain');
         }
@@ -43,7 +45,7 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'handle-well-known',
       configureServer(server) {
-        server.middlewares.use((req, res, next) => {
+        server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
           if (req.url?.startsWith('/.well-known/')) {
             res.setHeader('Content-Type', 'text/plain');
           }
