@@ -1,0 +1,11 @@
+# Serve Apple Pay verification file with correct MIME type
+<Files "apple-developer-merchantid-domain-association">
+    ForceType text/plain
+</Files>
+
+# Enable CORS for .well-known directory
+<IfModule mod_headers.c>
+    <FilesMatch "^\.well-known/.*">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule> 
