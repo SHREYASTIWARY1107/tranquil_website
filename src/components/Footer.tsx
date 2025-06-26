@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const navigationLinks = [
@@ -55,21 +56,38 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="space-y-6">
-            <h4 className="text-white font-semibold text-lg">Product</h4>
-            <ul className="space-y-3">
-              {navigationLinks.map((link, i) => (
-                <li key={i}>
-                  <a 
-                    href={link.href}
-                    className="text-slate-300 hover:text-white transition-colors duration-300 hover:underline"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Socials Message and Icons */}
+          <div className="space-y-6 flex flex-col items-center justify-center lg:col-span-2">
+            <div className="text-slate-400 text-center text-lg font-medium">Follow us on our socials to keep up to date.</div>
+            <div className="flex items-center space-x-6">
+              <a
+                href="https://twitter.com/tranquil_labs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-cyan-400 transition-colors"
+                aria-label="Tranquil AI Twitter"
+              >
+                <Twitter className="w-6 h-6" />
+              </a>
+              <a
+                href="https://instagram.com/tranquil_ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-pink-400 transition-colors"
+                aria-label="Tranquil AI Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/tranquil-ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors"
+                aria-label="Tranquil AI LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -78,17 +96,6 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="text-slate-400">
               © 2025 Tranquil AI. All rights reserved.
-            </div>
-            <div className="flex items-center space-x-6">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                Terms
-              </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                Cookies
-              </a>
             </div>
           </div>
         </div>
