@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { Flower2, Heart, Timer, Sparkles, Wind } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const MeditationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,48 +71,32 @@ const MeditationSection = () => {
   };
 
   return (
-    <section 
-      id="meditation" 
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-teal-900 py-20 relative overflow-hidden"
+    <motion.section
+      id="meditation"
+      className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-20 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0">
-        {/* Floating Elements */}
-        {floatingElements.map((element) => (
-          <div
-            key={element.id}
-            className="absolute animate-pulse opacity-30"
-            style={{
-              left: `${element.x}%`,
-              top: `${element.y}%`,
-              animationDelay: `${element.delay}s`,
-              animationDuration: `${element.duration}s`,
-            }}
-          >
-            <div className="animate-bounce">
-              {renderFloatingIcon(element.type)}
-            </div>
-          </div>
-        ))}
-
-        {/* Zen Garden Ripples */}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-96 h-96 border border-white/10 rounded-full animate-ping opacity-20"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${20 + i * 10}%`,
-              animationDelay: `${i * 2}s`,
-              animationDuration: '8s'
-            }}
-          />
-        ))}
-
-        {/* Gradient Orbs */}
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-teal-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
-      </div>
+      {/* Animated Background Blobs */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
+      </motion.div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -209,7 +193,7 @@ const MeditationSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

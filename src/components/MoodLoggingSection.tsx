@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { TrendingUp, Brain, Calendar } from 'lucide-react';
+import { TrendingUp, Brain, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MoodLoggingSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentMoodIndex, setCurrentMoodIndex] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const moods = [
     {
@@ -63,7 +64,14 @@ const MoodLoggingSection = () => {
     const section = document.getElementById('mood-logging');
     if (section) observer.observe(section);
 
-    return () => observer.disconnect();
+    // Listen for custom event to expand the card
+    const expandHandler = () => setExpanded(true);
+    window.addEventListener('expand-mood-logging-card', expandHandler);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('expand-mood-logging-card', expandHandler);
+    };
   }, []);
 
   useEffect(() => {
@@ -228,7 +236,7 @@ const MoodLoggingSection = () => {
   return (
     <section
       id="mood-logging"
-      className="py-24 bg-gradient-to-br from-slate-50 to-cyan-50 relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-blue-50 to-cyan-50 relative overflow-hidden"
     >
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div
@@ -264,7 +272,7 @@ const MoodLoggingSection = () => {
                 </div>
                 
                 {/* Main Content Area */}
-                <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-blue-50" style={{ height: 'calc(100% - 1.5rem)' }}>
+                <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50" style={{ height: 'calc(100% - 1.5rem)' }}>
                   {/* Mood Animation Container */}
                   <div className="relative w-36 h-36 mb-6">
                     <AnimatePresence mode="wait">
@@ -452,6 +460,56 @@ const MoodLoggingSection = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Expandable Mood Logging Feature Card - moved below grid for visibility */}
+        <div className="max-w-2xl mx-auto mb-12 z-10 relative">
+          <div
+            className={`bg-white rounded-3xl p-8 shadow-xl border border-blue-100 transition-all duration-500 ${expanded ? 'ring-2 ring-cyan-300 scale-105' : ''} cursor-pointer hover:shadow-2xl`}
+            style={{ overflow: 'visible' }}
+            onClick={() => { if (!expanded) setExpanded(true); }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-cyan-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900">Mood Logging with AI Insights</h3>
+                  <p className="text-sm text-slate-600">Track your emotions and get personalized insights</p>
+                </div>
+              </div>
+              {/* Remove the button, use card click instead */}
+              {expanded ? (
+                <ChevronUp className="w-5 h-5 text-cyan-600 ml-2" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-cyan-600 ml-2" />
+              )}
+            </div>
+            <p className="text-slate-700 mb-4">
+              Advanced mood tracking with AI-powered pattern recognition that learns from your emotional data to provide predictive insights and personalized recommendations.
+            </p>
+            {/* Expanded content: use simple conditional rendering */}
+            {expanded && (
+              <div className="mt-4 animate-fadeInMessage" onClick={e => { e.stopPropagation(); }}>
+                <ul className="list-disc pl-6 text-slate-600 mb-4">
+                  <li>Pattern Recognition: Detects trends and emotional triggers</li>
+                  <li>Predictive Analytics: Anticipates mood changes and offers proactive support</li>
+                  <li>Trend Visualization: Beautiful charts to help you understand your journey</li>
+                </ul>
+                <div className="rounded-xl overflow-hidden border border-blue-100 mb-4">
+                  <img src="/dashboard-mockup.png" alt="Mood Logging Screenshot" className="w-full h-48 object-cover" />
+                </div>
+                <p className="text-slate-600 mb-2">Our mood logging tool is designed to be intuitive and insightful, helping you build emotional awareness and resilience over time.</p>
+                <button
+                  className="mt-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full shadow hover:from-cyan-600 hover:to-blue-600 transition-colors"
+                  onClick={() => setExpanded(false)}
+                >
+                  Close
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

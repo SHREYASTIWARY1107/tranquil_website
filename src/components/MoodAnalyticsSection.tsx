@@ -265,26 +265,26 @@ const MoodAnalyticsSection = () => {
           </div>
 
           {/* Progress Highlight */}
-          <div className={`bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-200 transition-all duration-1000 delay-1100 ${
+          <div className={`bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 border border-blue-200 transition-all duration-1000 delay-1100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900">Progress Highlight</h3>
             </div>
             <p className="text-slate-700 leading-relaxed mb-4">
               Positive days make up 63.3% of total entries, showing a consistent trend towards positivity and emotional growth.
             </p>
-            <div className="bg-white rounded-xl p-4 border border-green-100">
+            <div className="bg-white rounded-xl p-4 border border-blue-100">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-slate-600">Positive Ratio</span>
                 <div className="flex items-center space-x-2">
-                  <div className="w-20 h-2 bg-green-100 rounded-full overflow-hidden">
-                    <div className="w-2/3 h-full bg-green-500 rounded-full"></div>
+                  <div className="w-20 h-2 bg-blue-100 rounded-full overflow-hidden">
+                    <div className="w-2/3 h-full bg-blue-500 rounded-full"></div>
                   </div>
-                  <span className="text-sm font-bold text-green-600">63.3%</span>
+                  <span className="text-sm font-bold text-blue-600">63.3%</span>
                 </div>
               </div>
             </div>

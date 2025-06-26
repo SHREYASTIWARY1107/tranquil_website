@@ -9,11 +9,16 @@ import fs from 'fs';
 export default defineConfig(({ mode }) => ({
   base: "/",
   server: {
+<<<<<<< local-dev
     host: "::",
-    port: 8080,
-    headers: {
-      'Content-Type': 'text/plain'
-    },
+    port: 8084,
+    
+=======
+    port: 3000,
+    strictPort: true,
+    open: true,
+    cors: true,
+>>>>>>> local-dev
     middleware: [
       (req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
         if (req.url === '/.well-known/apple-developer-merchantid-domain-association') {

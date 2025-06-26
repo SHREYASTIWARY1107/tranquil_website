@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { BookOpen, Edit3, Calendar, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const JournalingSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,10 +56,32 @@ const JournalingSection = () => {
   }, []);
 
   return (
-    <section 
-      id="journaling" 
+    <motion.section
+      id="journaling"
       className="py-24 bg-white relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
+      {/* Animated Background Blobs */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-emerald-100/40 to-cyan-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-100/40 to-emerald-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
+      </motion.div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -200,7 +222,7 @@ const JournalingSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
