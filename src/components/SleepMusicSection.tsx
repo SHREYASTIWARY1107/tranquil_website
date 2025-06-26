@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { Music, Play, Pause, Volume2, Waves, Moon, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const SleepMusicSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,10 +64,33 @@ const SleepMusicSection = () => {
   };
 
   return (
-    <section 
-      id="sleep-music" 
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 py-20 relative overflow-hidden"
+    <motion.section
+      id="sleep-music"
+      className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-20 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
+      {/* Animated Background Blobs */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
+      </motion.div>
+
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Elements */}
@@ -90,12 +113,12 @@ const SleepMusicSection = () => {
 
         {/* Animated Waves */}
         <div className="absolute bottom-0 left-0 w-full h-32 opacity-20">
-          <Waves className="w-full h-full text-blue-400 animate-pulse" />
+          <Waves className="w-full h-full text-cyan-300 animate-pulse" />
         </div>
 
         {/* Gradient Orbs */}
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-cyan-200/20 to-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-200/20 to-cyan-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Crescent Moon - Enhanced */}
@@ -209,7 +232,7 @@ const SleepMusicSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

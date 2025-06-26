@@ -57,7 +57,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about-us" className="py-16 bg-white">
+    <section id="about-us" className="py-16 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -99,15 +99,14 @@ const AboutUs = () => {
           <h3 className="text-3xl font-bold text-center mb-10 text-slate-800">Meet Our Co-Founders</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
-              <div key={index} className="group">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-center">
+              <div key={index} className="group h-full">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 min-h-[340px] flex flex-col justify-between h-full">
+                  <div className="text-center flex flex-col flex-1 justify-between">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-20 h-20 rounded-xl object-cover mx-auto mb-4"
                     />
-                    
                     <h4 className="text-xl font-bold mb-1 text-slate-800">{member.name}</h4>
                     <p className="text-sm font-semibold text-cyan-600 mb-2">{member.role}</p>
                     <p className="text-sm text-slate-600 mb-3">{member.description}</p>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Smartphone, Star, Download, Shield, Users, Award } from 'lucide-react';
+import { Smartphone, Star, Download, Shield, Users, Award, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const DownloadSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,16 +36,32 @@ const DownloadSection = () => {
   );
 
   return (
-    <section 
-      id="download" 
+    <motion.section
+      id="download"
       className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-emerald-100/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-slate-100/10 rounded-full blur-3xl"></div>
-      </div>
+      {/* Animated Background Blobs */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
+      </motion.div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         
@@ -78,50 +95,12 @@ const DownloadSection = () => {
             <div className="relative flex justify-center">
               
               {/* Main Phone */}
-              <div className="relative bg-slate-800 rounded-[3rem] p-2 shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                <div className="bg-white rounded-[2.5rem] overflow-hidden w-80 h-[600px]">
-                  
-                  {/* App Interface */}
-                  <div className="bg-gradient-to-b from-indigo-50 to-white h-full p-6">
-                    <div className="text-center mt-8">
-                      <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                        <Smartphone className="w-10 h-10 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-2">Welcome to</h3>
-                      <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                        Tranquil AI
-                      </h2>
-                      <p className="text-slate-600 mt-4">Your personal mental wellness companion</p>
-                    </div>
-
-                    {/* Feature Preview */}
-                    <div className="mt-12 space-y-4">
-                      <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
-                            <span className="text-indigo-600">🧠</span>
-                          </div>
-                          <div>
-                            <p className="font-semibold text-slate-900">AI Therapy</p>
-                            <p className="text-sm text-slate-500">Available 24/7</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                            <span className="text-green-600">📊</span>
-                          </div>
-                          <div>
-                            <p className="font-semibold text-slate-900">Mood Tracking</p>
-                            <p className="text-sm text-slate-500">Smart insights</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="mx-auto w-80 h-[600px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-slate-200 flex items-center justify-center">
+                <img 
+                  src="/dashboard-mockup.png" 
+                  alt="Dashboard Mockup" 
+                  className="w-full h-full object-cover object-top" 
+                />
               </div>
             </div>
           </div>
@@ -132,7 +111,7 @@ const DownloadSection = () => {
           }`}>
 
             {/* App Store Rating */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 mb-8">
+            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-blue-100 mb-8">
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1 mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -153,7 +132,7 @@ const DownloadSection = () => {
                 rel="noopener noreferrer"
                 className="block w-full"
               >
-                <button className="w-full bg-black hover:bg-gray-800 text-white px-6 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
                   <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
@@ -176,7 +155,7 @@ const DownloadSection = () => {
                 rel="noopener noreferrer"
                 className="block w-full"
               >
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <button className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
                   <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
@@ -201,7 +180,7 @@ const DownloadSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

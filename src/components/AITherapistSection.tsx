@@ -103,45 +103,10 @@ const AITherapistSection = () => {
             }`}
             style={{ transform: `translateY(${parallaxOffset}px) translateX(${isVisible ? 0 : -80}px)` }}
           >
-            {/* iPhone 16 Frame */}
-            <div className="relative w-80 h-[700px] mx-auto bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3.5rem] shadow-2xl overflow-hidden border-2 border-slate-700">
-              
-              {/* Action Button */}
-              <div className="absolute left-0 top-32 w-1 h-8 bg-slate-600 rounded-r-full"></div>
-              
-              {/* Volume Buttons */}
-              <div className="absolute left-0 top-20 w-1 h-6 bg-slate-600 rounded-r-full"></div>
-              <div className="absolute left-0 top-28 w-1 h-6 bg-slate-600 rounded-r-full"></div>
-              
-              {/* Power Button */}
-              <div className="absolute right-0 top-32 w-1 h-12 bg-slate-600 rounded-l-full"></div>
-
-              {/* Screen Content */}
-              <div className="absolute inset-2 bg-black rounded-[3rem] overflow-hidden">
-                
-                {/* Dynamic Island */}
-                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full z-20 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-slate-800 rounded-full mr-3"></div>
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                </div>
-
-                {/* Status Bar */}
-                <div className="h-14 bg-gradient-to-b from-blue-500 to-blue-600 flex items-center justify-between px-6 text-white text-sm font-medium pt-8">
-                  <span className="font-semibold">2:48</span>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1">
-                      <div className="w-1 h-3 bg-white rounded-full"></div>
-                      <div className="w-1 h-3 bg-white rounded-full"></div>
-                      <div className="w-1 h-3 bg-white rounded-full"></div>
-                      <div className="w-1 h-3 bg-white/60 rounded-full"></div>
-                    </div>
-                    <div className="w-6 h-3 border border-white rounded-sm">
-                      <div className="w-5 h-full bg-green-400 rounded-sm"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Enhanced Chat Header */}
+            {/* Simple Phone Outline for App Showcase */}
+            <div className="mx-auto w-80 h-[600px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-slate-200 flex items-center justify-center">
+              <div className="w-full h-full relative overflow-hidden flex flex-col">
+                {/* Chat Header (restored) */}
                 <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-4 py-4 flex items-center justify-between shadow-lg">
                   <div className="flex items-center space-x-3">
                     <ArrowLeft className="w-6 h-6 text-white" />
@@ -157,76 +122,67 @@ const AITherapistSection = () => {
                   </div>
                   <div className="flex space-x-2">
                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                      <Camera className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                       <Plus className="w-4 h-4 text-white" />
                     </div>
                   </div>
                 </div>
-
                 {/* Chat Messages Area */}
-                <div className="flex-1 bg-gradient-to-br from-slate-50 to-blue-50 px-4 py-6 space-y-4 overflow-y-auto" style={{ height: 'calc(100% - 160px)' }}>
-                  
+                <div className="flex-1 bg-gradient-to-br from-slate-50 to-blue-50 px-2 py-3 space-y-2 overflow-y-auto transition-all duration-500" style={{ height: 'calc(100% - 80px)' }}>
                   {/* Display completed messages */}
                   {conversation.slice(0, currentMessage).map((msg, i) => (
-                    <div key={i} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} animate-fadeInMessage`}>
+                    <div key={i} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} animate-fadeInMessage`} style={{animationDelay: `${i * 0.15}s`}}>
                       {msg.type === 'ai' && (
-                        <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1 shadow-lg">
-                          <MessageCircle className="w-4 h-4 text-white" />
+                        <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-2 flex-shrink-0 mt-1 shadow-lg">
+                          <MessageCircle className="w-3 h-3 text-white" />
                         </div>
                       )}
-                      <div className={`max-w-xs px-4 py-3 rounded-2xl shadow-lg backdrop-blur-sm ${
+                      <div className={`max-w-xs px-3 py-2 rounded-2xl shadow-lg backdrop-blur-sm text-sm ${
                         msg.type === 'user' 
                           ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-br-md shadow-blue-200' 
                           : 'bg-white/90 text-slate-900 rounded-tl-md border border-white/50 shadow-slate-200'
                       }`}>
-                        <p className="text-sm leading-relaxed">{msg.message}</p>
-                        <p className={`text-xs mt-1 ${msg.type === 'user' ? 'text-blue-100' : 'text-slate-400'}`}>
-                          {msg.time}
-                        </p>
+                        <p className="leading-relaxed text-xs md:text-sm">{msg.message}</p>
+                        <p className={`text-[10px] mt-1 ${msg.type === 'user' ? 'text-blue-100' : 'text-slate-400'}`}>{msg.time}</p>
                       </div>
                       {msg.type === 'user' && (
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center ml-3 flex-shrink-0 mt-1 shadow-lg">
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
+                        <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center ml-2 flex-shrink-0 mt-1 shadow-lg">
+                          <div className="w-3 h-3 bg-white rounded-full"></div>
                         </div>
                       )}
                     </div>
                   ))}
-
                   {/* Current typing message */}
                   {currentMessage < conversation.length && typingText && (
-                    <div className={`flex ${conversation[currentMessage].type === 'user' ? 'justify-end' : 'justify-start'} animate-fadeInMessage`}>
+                    <div className={`flex ${conversation[currentMessage].type === 'user' ? 'justify-end' : 'justify-start'} animate-fadeInMessage`} style={{animationDelay: `${currentMessage * 0.15}s`}}>
                       {conversation[currentMessage].type === 'ai' && (
-                        <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1 shadow-lg">
-                          <MessageCircle className="w-4 h-4 text-white" />
+                        <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-2 flex-shrink-0 mt-1 shadow-lg">
+                          <MessageCircle className="w-3 h-3 text-white" />
                         </div>
                       )}
-                      <div className={`max-w-xs px-4 py-3 rounded-2xl shadow-lg backdrop-blur-sm ${
+                      <div className={`max-w-xs px-3 py-2 rounded-2xl shadow-lg backdrop-blur-sm text-sm ${
                         conversation[currentMessage].type === 'user' 
                           ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-br-md shadow-blue-200' 
                           : 'bg-white/90 text-slate-900 rounded-tl-md border border-white/50 shadow-slate-200'
                       }`}>
-                        <p className="text-sm leading-relaxed">
+                        <p className="leading-relaxed text-xs md:text-sm">
                           {typingText}
                           <span className="animate-pulse text-blue-500">|</span>
                         </p>
                       </div>
                       {conversation[currentMessage].type === 'user' && (
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center ml-3 flex-shrink-0 mt-1 shadow-lg">
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
+                        <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center ml-2 flex-shrink-0 mt-1 shadow-lg">
+                          <div className="w-3 h-3 bg-white rounded-full"></div>
                         </div>
                       )}
                     </div>
                   )}
-                  
                   {/* Typing indicator for AI */}
                   {currentMessage < conversation.length && !typingText && conversation[currentMessage]?.type === 'ai' && (
-                    <div className="flex justify-start animate-fadeInMessage">
-                      <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1 shadow-lg">
-                        <MessageCircle className="w-4 h-4 text-white" />
+                    <div className="flex justify-start animate-fadeInMessage" style={{animationDelay: `${currentMessage * 0.15}s`}}>
+                      <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-2 flex-shrink-0 mt-1 shadow-lg">
+                        <MessageCircle className="w-3 h-3 text-white" />
                       </div>
-                      <div className="bg-white/90 backdrop-blur-sm border border-white/50 rounded-2xl rounded-tl-md px-4 py-3 shadow-lg">
+                      <div className="bg-white/90 backdrop-blur-sm border border-white/50 rounded-2xl rounded-tl-md px-3 py-2 shadow-lg">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
                           <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -236,24 +192,23 @@ const AITherapistSection = () => {
                     </div>
                   )}
                 </div>
-
                 {/* Enhanced Chat Input */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl p-4 border-t border-white/20">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center">
-                      <Plus className="w-4 h-4 text-slate-600" />
+                <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl p-2 border-t border-white/20">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-6 h-6 bg-slate-200 rounded-full flex items-center justify-center">
+                      <Plus className="w-3 h-3 text-slate-600" />
                     </div>
-                    <div className="flex-1 bg-slate-100 rounded-full px-4 py-3 flex items-center space-x-2">
-                      <p className="text-slate-400 text-sm flex-1">Type your message...</p>
-                      <Mic className="w-4 h-4 text-slate-400" />
+                    <div className="flex-1 bg-slate-100 rounded-full px-3 py-2 flex items-center space-x-2">
+                      <p className="text-slate-400 text-xs flex-1">Type your message...</p>
+                      <Mic className="w-3 h-3 text-slate-400" />
                     </div>
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Send className="w-4 h-4 text-white" />
+                    <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                      <Send className="w-3 h-3 text-white" />
                     </div>
                   </div>
                   {/* Home indicator */}
-                  <div className="mt-3 flex justify-center">
-                    <div className="w-36 h-1 bg-slate-900 rounded-full opacity-60"></div>
+                  <div className="mt-2 flex justify-center">
+                    <div className="w-20 h-1 bg-slate-900 rounded-full opacity-60"></div>
                   </div>
                 </div>
               </div>
@@ -337,7 +292,7 @@ const AITherapistSection = () => {
         @keyframes fadeInMessage {
           from {
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
+            transform: translateY(20px) scale(0.98);
           }
           to {
             opacity: 1;
@@ -345,7 +300,7 @@ const AITherapistSection = () => {
           }
         }
         .animate-fadeInMessage {
-          animation: fadeInMessage 0.5s ease-out forwards;
+          animation: fadeInMessage 0.6s cubic-bezier(0.4,0.2,0.2,1) both;
         }
       `}</style>
     </section>
