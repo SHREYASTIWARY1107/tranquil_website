@@ -203,8 +203,8 @@ const FeatureCard = ({ feature, index, setOpenModalIndex }) => {
     <motion.div
       className={`group relative bg-gradient-to-br ${feature.color} backdrop-blur-sm 
                   border ${feature.borderColor} ${feature.hoverColor}
-                  rounded-3xl p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl
-                  transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} overflow-hidden min-h-[480px] flex flex-col justify-between`}
+                  rounded-3xl p-5 sm:p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl
+                  transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} overflow-hidden min-h-[400px] sm:min-h-[480px] flex flex-col justify-between`}
       style={{ transitionDelay: `${index * 50}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -308,50 +308,50 @@ const Features = () => {
   // Modal content for the first three features
   const featureModals = [0, 1, 2].map(idx => (
     openModalIndex === idx && (
-      <div key={idx} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-        <div className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full p-10 relative animate-fadeInMessage flex flex-col md:flex-row gap-8">
+      <div key={idx} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative animate-fadeInMessage flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-10">
           {/* Cross button at top right */}
           <button
-            className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 z-20"
+            className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 z-30 bg-white rounded-full p-1 shadow-sm"
             onClick={() => setOpenModalIndex(null)}
             aria-label="Close"
           >
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
           </button>
           {/* Left: Images or Hero */}
-          <div className="flex-shrink-0 flex flex-col items-center justify-center gap-4 md:w-1/2">
+          <div className="flex-shrink-0 flex flex-col items-center justify-center gap-4 w-full md:w-1/2 mt-8 md:mt-0">
             {idx === 0 && (
               <div className="w-full flex flex-col items-center">
-                <div className="relative w-full flex items-center justify-center" style={{height: 'calc(80vh - 120px)', maxHeight: '600px'}}>
+                <div className="relative w-full flex items-center justify-center">
                   <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-blue-100 transition disabled:opacity-30"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-blue-100 transition disabled:opacity-30 z-10"
                     onClick={() => setMoodImageIndex((moodImageIndex + moodImages.length - 1) % moodImages.length)}
                     disabled={moodImageIndex === 0}
                     aria-label="Previous mood image"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-blue-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
                   </button>
                   <img
                     src={moodImages[moodImageIndex].src}
                     alt={moodImages[moodImageIndex].alt}
-                    className="rounded-2xl object-cover border border-blue-100 transition-all duration-300"
-                    style={{ width: 'auto', height: '70vh', maxHeight: '540px', aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
+                    className="rounded-2xl object-cover border border-blue-100 transition-all duration-300 w-full max-w-[280px] h-auto max-h-[400px] md:max-h-[540px]"
+                    style={{ aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
                   />
                   <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-blue-100 transition disabled:opacity-30"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-blue-100 transition disabled:opacity-30 z-10"
                     onClick={() => setMoodImageIndex((moodImageIndex + 1) % moodImages.length)}
                     disabled={moodImageIndex === moodImages.length - 1}
                     aria-label="Next mood image"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-blue-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </button>
                 </div>
                 {/* Dots */}
-                <div className="flex justify-center mt-10 gap-2">
+                <div className="flex justify-center mt-4 gap-2">
                   {moodImages.map((img, i) => (
                     <button
                       key={i}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${i === moodImageIndex ? 'bg-blue-500' : 'bg-blue-200'}`}
+                      className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${i === moodImageIndex ? 'bg-blue-500' : 'bg-blue-200'}`}
                       onClick={() => setMoodImageIndex(i)}
                       aria-label={`Go to mood image ${i + 1}`}
                     />
@@ -361,36 +361,36 @@ const Features = () => {
             )}
             {idx === 1 && (
               <div className="w-full flex flex-col items-center">
-                <div className="relative w-full flex items-center justify-center" style={{height: 'calc(80vh - 120px)', maxHeight: '600px'}}>
+                <div className="relative w-full flex items-center justify-center">
                   <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-indigo-100 transition disabled:opacity-30"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-indigo-100 transition disabled:opacity-30 z-10"
                     onClick={() => setSleepMeditationIndex((sleepMeditationIndex + sleepMeditationSlides.length - 1) % sleepMeditationSlides.length)}
                     disabled={sleepMeditationIndex === 0}
                     aria-label="Previous slide"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-indigo-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-indigo-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
                   </button>
                   <img
                     src={sleepMeditationSlides[sleepMeditationIndex].src}
                     alt={sleepMeditationSlides[sleepMeditationIndex].alt}
-                    className={`rounded-2xl object-cover border transition-all duration-300 ${sleepMeditationSlides[sleepMeditationIndex].border}`}
-                    style={{ width: 'auto', height: '70vh', maxHeight: '540px', aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
+                    className={`rounded-2xl object-cover border transition-all duration-300 w-full max-w-[280px] h-auto max-h-[400px] md:max-h-[540px] ${sleepMeditationSlides[sleepMeditationIndex].border}`}
+                    style={{ aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
                   />
                   <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-indigo-100 transition disabled:opacity-30"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-indigo-100 transition disabled:opacity-30 z-10"
                     onClick={() => setSleepMeditationIndex((sleepMeditationIndex + 1) % sleepMeditationSlides.length)}
                     disabled={sleepMeditationIndex === sleepMeditationSlides.length - 1}
                     aria-label="Next slide"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-indigo-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-indigo-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </button>
                 </div>
                 {/* Dots */}
-                <div className="flex justify-center mt-10 gap-2">
+                <div className="flex justify-center mt-4 gap-2">
                   {sleepMeditationSlides.map((slide, i) => (
                     <button
                       key={i}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${i === sleepMeditationIndex ? 'bg-indigo-500' : 'bg-indigo-200'}`}
+                      className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${i === sleepMeditationIndex ? 'bg-indigo-500' : 'bg-indigo-200'}`}
                       onClick={() => setSleepMeditationIndex(i)}
                       aria-label={`Go to slide ${i + 1}`}
                     />
@@ -400,36 +400,36 @@ const Features = () => {
             )}
             {idx === 2 && (
               <div className="w-full flex flex-col items-center">
-                <div className="relative w-full flex items-center justify-center" style={{height: 'calc(80vh - 120px)', maxHeight: '600px'}}>
+                <div className="relative w-full flex items-center justify-center">
                   <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-emerald-100 transition disabled:opacity-30"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-emerald-100 transition disabled:opacity-30 z-10"
                     onClick={() => setJournalingIndex((journalingIndex + journalingSlides.length - 1) % journalingSlides.length)}
                     disabled={journalingIndex === 0}
                     aria-label="Previous slide"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-emerald-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-emerald-500"><polyline points="15 18 9 12 15 6"></polyline></svg>
                   </button>
                   <img
                     src={journalingSlides[journalingIndex].src}
                     alt={journalingSlides[journalingIndex].alt}
-                    className={`rounded-2xl object-cover border transition-all duration-300 ${journalingSlides[journalingIndex].border}`}
-                    style={{ width: 'auto', height: '70vh', maxHeight: '540px', aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
+                    className={`rounded-2xl object-cover border transition-all duration-300 w-full max-w-[280px] h-auto max-h-[400px] md:max-h-[540px] ${journalingSlides[journalingIndex].border}`}
+                    style={{ aspectRatio: '9/19', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}
                   />
                   <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full shadow p-2 hover:bg-emerald-100 transition disabled:opacity-30"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full shadow p-2 hover:bg-emerald-100 transition disabled:opacity-30 z-10"
                     onClick={() => setJournalingIndex((journalingIndex + 1) % journalingSlides.length)}
                     disabled={journalingIndex === journalingSlides.length - 1}
                     aria-label="Next slide"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-emerald-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-emerald-500"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </button>
                 </div>
                 {/* Dots */}
-                <div className="flex justify-center mt-10 gap-2">
+                <div className="flex justify-center mt-4 gap-2">
                   {journalingSlides.map((slide, i) => (
                     <button
                       key={i}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${i === journalingIndex ? 'bg-emerald-500' : 'bg-emerald-200'}`}
+                      className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${i === journalingIndex ? 'bg-emerald-500' : 'bg-emerald-200'}`}
                       onClick={() => setJournalingIndex(i)}
                       aria-label={`Go to slide ${i + 1}`}
                     />
@@ -439,22 +439,22 @@ const Features = () => {
             )}
           </div>
           {/* Right: Text Content */}
-          <div className="flex-1 flex flex-col justify-center">
+          <div className="flex-1 flex flex-col justify-center mt-6 md:mt-0">
             {idx === 0 && (
               <>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl flex items-center justify-center">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl flex items-center justify-center">
                     {features[idx].icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">Unlock Your Emotional Patterns</h3>
-                    <p className="text-sm text-slate-600">Visualize your mood journey and grow every day</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900">Unlock Your Emotional Patterns</h3>
+                    <p className="text-xs md:text-sm text-slate-600">Visualize your mood journey and grow every day</p>
                   </div>
                 </div>
-                <p className="text-lg text-slate-700 mb-4">
+                <p className="text-sm md:text-lg text-slate-700 mb-4 leading-relaxed">
                   Discover how your moods evolve over time with our beautiful, AI-powered mood logging. Visualize your emotional journey, spot trends, and gain insights that help you grow. Our intuitive interface and smart analytics make it easy to understand yourself better—every day.
                 </p>
-                <ul className="list-disc pl-6 text-slate-600 mb-4">
+                <ul className="list-disc pl-4 md:pl-6 text-slate-600 mb-4 text-sm md:text-base space-y-1">
                   <li>Track your feelings with a tap</li>
                   <li>See your mood history at a glance</li>
                   <li>Get personalized insights and gentle nudges for self-care</li>
@@ -463,19 +463,19 @@ const Features = () => {
             )}
             {idx === 1 && (
               <>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl flex items-center justify-center">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl flex items-center justify-center">
                     {features[idx].icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">{sleepMeditationSlides[sleepMeditationIndex].title}</h3>
-                    <p className="text-sm text-slate-600">{sleepMeditationSlides[sleepMeditationIndex].subtitle}</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900">{sleepMeditationSlides[sleepMeditationIndex].title}</h3>
+                    <p className="text-xs md:text-sm text-slate-600">{sleepMeditationSlides[sleepMeditationIndex].subtitle}</p>
                   </div>
                 </div>
-                <p className="text-lg text-slate-700 mb-4">
+                <p className="text-sm md:text-lg text-slate-700 mb-4 leading-relaxed">
                   {sleepMeditationSlides[sleepMeditationIndex].text}
                 </p>
-                <ul className="list-disc pl-6 text-slate-600 mb-4">
+                <ul className="list-disc pl-4 md:pl-6 text-slate-600 mb-4 text-sm md:text-base space-y-1">
                   {sleepMeditationSlides[sleepMeditationIndex].bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}
@@ -484,19 +484,19 @@ const Features = () => {
             )}
             {idx === 2 && (
               <>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl flex items-center justify-center">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl flex items-center justify-center">
                     {features[idx].icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">{journalingSlides[journalingIndex].title}</h3>
-                    <p className="text-sm text-slate-600">{journalingSlides[journalingIndex].subtitle}</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900">{journalingSlides[journalingIndex].title}</h3>
+                    <p className="text-xs md:text-sm text-slate-600">{journalingSlides[journalingIndex].subtitle}</p>
                   </div>
                 </div>
-                <p className="text-lg text-slate-700 mb-4">
+                <p className="text-sm md:text-lg text-slate-700 mb-4 leading-relaxed">
                   {journalingSlides[journalingIndex].text}
                 </p>
-                <ul className="list-disc pl-6 text-slate-600 mb-4">
+                <ul className="list-disc pl-4 md:pl-6 text-slate-600 mb-4 text-sm md:text-base space-y-1">
                   {journalingSlides[journalingIndex].bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}
@@ -512,7 +512,7 @@ const Features = () => {
   return (
     <motion.section
       id="features"
-      className="relative py-24 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 overflow-hidden"
+      className="relative py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -526,41 +526,42 @@ const Features = () => {
         transition={{ duration: 1.2 }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </motion.div>
-      <div className="relative container mx-auto px-6 lg:px-8">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* AI Therapist Section */}
-        <motion.div className="mb-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.1 }}>
+        <motion.div className="mb-10 sm:mb-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.1 }}>
           <AITherapistSection />
         </motion.div>
         {/* Feature Introduction */}
-        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.2 }}>
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 text-sm font-medium mb-6">
+        <motion.div className="text-center mb-10 sm:mb-16" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <Sparkles className="w-4 h-4 mr-2" />
             Comprehensive Wellness Platform
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
             Features That Transform Your
             <span className="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Mental Wellness Journey
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-slate-600 max-w-xl sm:max-w-3xl mx-auto leading-relaxed">
             Experience a comprehensive suite of AI-powered tools designed to support, 
             enhance, and accelerate your path to better mental health and wellbeing.
           </p>
         </motion.div>
         {/* Feature Cards Grid */}
         <motion.div
-          className="grid gap-8 lg:gap-12 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:gap-8 lg:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          style={{ minWidth: 0 }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -577,6 +578,7 @@ const Features = () => {
                 visible: { opacity: 1, y: 0 }
               }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
+              style={{ minWidth: 0 }}
             >
               <FeatureCard feature={feature} index={index} setOpenModalIndex={setOpenModalIndex} />
             </motion.div>

@@ -73,7 +73,7 @@ const MeditationSection = () => {
   return (
     <motion.section
       id="meditation"
-      className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-20 relative overflow-hidden"
+      className="min-h-[60vh] sm:min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-10 sm:py-20 relative overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -87,23 +87,23 @@ const MeditationSection = () => {
         transition={{ duration: 1.2 }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          className="absolute top-1/4 left-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 right-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </motion.div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Left Column - Breathing Circle */}
           <div className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
             <div className="relative flex items-center justify-center">
               
@@ -144,23 +144,23 @@ const MeditationSection = () => {
           </div>
 
           {/* Right Column - Content */}
-          <div className={`text-white space-y-8 transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+          <div className={`text-white space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
-            <div className="space-y-4">
-              <h2 className="text-5xl font-bold leading-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-5xl font-bold leading-tight">
                 Find Your
                 <br />
                 <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                   Inner Peace
                 </span>
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 Guided meditation sessions to reduce stress, improve focus, and cultivate mindfulness
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {[
                 { icon: Timer, text: "5-minute to 1-hour guided sessions", color: "text-blue-400" },
                 { icon: Heart, text: "Breathing exercises for instant calm", color: "text-pink-400" },
@@ -182,7 +182,7 @@ const MeditationSection = () => {
             </div>
 
             {/* Meditation Bell */}
-            <div className="pt-4">
+            <div className="pt-2 sm:pt-4">
               <button className="group flex items-center space-x-3 text-emerald-300 hover:text-emerald-200 transition-colors duration-300 hover:scale-105 transform">
                 <div className="w-8 h-8 border-2 border-emerald-400 rounded-full flex items-center justify-center group-hover:animate-pulse group-hover:border-emerald-300">
                   <div className="w-3 h-3 bg-emerald-400 rounded-full group-hover:bg-emerald-300"></div>

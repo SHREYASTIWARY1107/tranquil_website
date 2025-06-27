@@ -57,30 +57,28 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about-us" className="py-16 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="about-us" className="py-10 sm:py-16 bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl mb-6">
-            <Users className="w-8 h-8 text-white" />
+        <div className="max-w-2xl sm:max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl mb-4 sm:mb-6">
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
-          
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
               About Us
             </span>
           </h2>
-          
-          <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed">
             We're four passionate co-founders who came together with a shared vision: to make quality mental health support accessible to everyone through innovative AI technology.
           </p>
         </div>
 
         {/* Our Story */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-slate-800">Our Story</h3>
-            <div className="space-y-4 text-slate-700 leading-relaxed">
+        <div className="max-w-2xl sm:max-w-4xl mx-auto mb-10 sm:mb-16">
+          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-5 sm:p-8">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-slate-800">Our Story</h3>
+            <div className="space-y-3 sm:space-y-4 text-slate-700 leading-relaxed">
               <p>
                 Tranquil AI was born from the collective vision of four co-founders who recognized a critical gap in mental health accessibility. Coming from diverse backgrounds in technology, business, finance, and operations, we united around a common purpose: leveraging AI to democratize mental health support.
               </p>
@@ -95,9 +93,9 @@ const AboutUs = () => {
         </div>
 
         {/* Team */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center mb-10 text-slate-800">Meet Our Co-Founders</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mb-10 sm:mb-16">
+          <h3 className="text-xl sm:text-3xl font-bold text-center mb-6 sm:mb-10 text-slate-800">Meet Our Co-Founders</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
               <div key={index} className="group h-full">
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 min-h-[340px] flex flex-col justify-between h-full">
@@ -121,9 +119,9 @@ const AboutUs = () => {
         </div>
 
         {/* Values & Impact */}
-        <div className="mb-12">
-          <h3 className="text-3xl font-bold text-center mb-10 text-slate-800">Our Values & Impact</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="mb-8 sm:mb-12">
+          <h3 className="text-xl sm:text-3xl font-bold text-center mb-6 sm:mb-10 text-slate-800">Our Values & Impact</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 sm:mb-12">
             {values.map((value, index) => (
               <div key={index} className="text-center group">
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-xl mb-4 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
@@ -134,7 +132,6 @@ const AboutUs = () => {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
