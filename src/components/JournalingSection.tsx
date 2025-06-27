@@ -58,7 +58,7 @@ const JournalingSection = () => {
   return (
     <motion.section
       id="journaling"
-      className="py-24 bg-white relative overflow-hidden"
+      className="py-12 sm:py-24 bg-white relative overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -72,19 +72,18 @@ const JournalingSection = () => {
         transition={{ duration: 1.2 }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-emerald-100/40 to-cyan-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          className="absolute top-1/4 left-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-emerald-100/40 to-cyan-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-100/40 to-emerald-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 right-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-blue-100/40 to-emerald-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </motion.div>
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div 
             className={`space-y-8 transition-all duration-1000 ${
@@ -92,27 +91,23 @@ const JournalingSection = () => {
             }`}
             style={{ transform: `translateY(${parallaxOffset}px) translateX(${isVisible ? 0 : -80}px)` }}
           >
-            
             {/* Section Badge */}
-            <div className="inline-flex items-center space-x-2 bg-emerald-100 rounded-full px-4 py-2">
+            <div className="inline-flex items-center space-x-2 bg-emerald-100 rounded-full px-3 sm:px-4 py-2">
               <Edit3 className="w-4 h-4 text-emerald-600" />
-              <span className="text-sm font-semibold text-emerald-700">Digital Journaling</span>
+              <span className="text-xs sm:text-sm font-semibold text-emerald-700">Digital Journaling</span>
             </div>
-
-            <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                 Express & Reflect
                 <br />
                 <span className="text-emerald-600">Your Inner World</span>
               </h2>
-              
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <p className="text-base sm:text-xl text-slate-600 leading-relaxed">
                 Guided journaling with AI-powered prompts and insights to help you process emotions, track progress, and develop self-awareness.
               </p>
             </div>
-
             {/* Features */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 {
                   icon: BookOpen,
@@ -148,7 +143,6 @@ const JournalingSection = () => {
               ))}
             </div>
           </div>
-
           {/* Right Column - Journal Interface */}
           <div 
             className={`transition-all duration-1000 delay-300 ${
@@ -156,8 +150,7 @@ const JournalingSection = () => {
             }`}
             style={{ transform: `translateY(${-parallaxOffset}px) translateX(${isVisible ? 0 : 80}px)` }}
           >
-            <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
-              
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-w-md sm:max-w-full mx-auto">
               {/* Journal Header */}
               <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-6">
                 <div className="flex items-center justify-between">

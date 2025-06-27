@@ -49,15 +49,15 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center min-h-[60vh] sm:min-h-screen">
           
           {/* Left Column - Content */}
           <div className={`space-y-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             
             {/* Main Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-slate-900 leading-tight">
                 Transform Your
                 <br />
                 <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 Journey
               </h1>
               
-              <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-xl lg:text-2xl text-slate-600 leading-relaxed max-w-md sm:max-w-2xl">
                 Experience personalized AI therapy, intelligent mood tracking, and evidence-based wellness tools designed by mental health professionals.
               </p>
             </div>
@@ -90,7 +90,6 @@ const HeroSection = () => {
                 ) : (
                   <>
                     Start Your Journey
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </Button>

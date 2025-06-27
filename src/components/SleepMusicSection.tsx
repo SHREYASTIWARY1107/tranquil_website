@@ -66,7 +66,7 @@ const SleepMusicSection = () => {
   return (
     <motion.section
       id="sleep-music"
-      className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-20 relative overflow-hidden"
+      className="min-h-[60vh] sm:min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 py-10 sm:py-20 relative overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -80,12 +80,12 @@ const SleepMusicSection = () => {
         transition={{ duration: 1.2 }}
       >
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+          className="absolute top-1/4 left-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-cyan-100/40 to-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 right-1/4 w-60 sm:w-96 h-60 sm:h-96 bg-gradient-to-r from-purple-100/40 to-pink-100/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
@@ -127,28 +127,28 @@ const SleepMusicSection = () => {
         <div className="absolute inset-0 rounded-full shadow-2xl shadow-yellow-400/50"></div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Left Column - Content */}
-          <div className={`text-white space-y-8 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+          <div className={`text-white space-y-6 sm:space-y-8 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
-            <div className="space-y-4">
-              <h2 className="text-5xl font-bold leading-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-5xl font-bold leading-tight">
                 Drift Into
                 <br />
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Peaceful Sleep
                 </span>
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-300 leading-relaxed">
                 Curated soundscapes and melodies designed to calm your mind and improve sleep quality
               </p>
             </div>
 
             {/* Music Categories */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               {musicCategories.map((category, i) => (
                 <div 
                   key={category.name}
@@ -167,7 +167,7 @@ const SleepMusicSection = () => {
             </div>
 
             {/* Floating Musical Notes */}
-            <div className="relative h-20 overflow-hidden">
+            <div className="relative h-10 sm:h-20 overflow-hidden">
               {['♪', '♫', '♪', '♫', '♪'].map((note, i) => (
                 <div
                   key={i}
@@ -186,10 +186,10 @@ const SleepMusicSection = () => {
 
           {/* Right Column - Audio Visualizer */}
           <div className={`transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-purple-800/50 to-pink-800/50 rounded-full mx-auto backdrop-blur-sm border border-white/20 flex items-center justify-center hover:scale-105 transition-transform duration-500 shadow-2xl shadow-purple-500/25">
+              <div className="w-56 h-56 sm:w-80 sm:h-80 bg-gradient-to-br from-purple-800/50 to-pink-800/50 rounded-full mx-auto backdrop-blur-sm border border-white/20 flex items-center justify-center hover:scale-105 transition-transform duration-500 shadow-2xl shadow-purple-500/25">
                 
                 {/* Waveform Visualizer */}
                 <div className="flex items-end justify-center space-x-1 h-32 w-64">
