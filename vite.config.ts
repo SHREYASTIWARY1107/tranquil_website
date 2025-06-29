@@ -10,8 +10,10 @@ export default defineConfig(({ mode }) => ({
   base: "/",
   server: {
     host: "::",
-    port: 8084,
-    
+    port: 5173,
+    strictPort: false,
+    open: true,
+    cors: true,
     middleware: [
       (req: IncomingMessage, res: ServerResponse, next: Connect.NextFunction) => {
         if (req.url === '/.well-known/apple-developer-merchantid-domain-association') {
