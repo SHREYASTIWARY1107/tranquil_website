@@ -10,8 +10,7 @@ export default defineConfig(({ mode }) => ({
   base: "/",
   server: {
     host: "::",
-    port: 5173,
-    strictPort: false,
+
     open: true,
     cors: true,
     middleware: [
