@@ -177,6 +177,19 @@ const DownloadSection = () => {
               <Shield className="w-4 h-4 text-emerald-600" />
               <span>Your data is encrypted and secure. We never share personal information.</span>
             </div>
+
+            {/* Privacy Policy Button */}
+            <div className="text-center mt-6">
+              <a 
+                href="/privacy-policy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white px-6 py-3 text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group"
+              >
+                <Shield className="w-4 h-4" />
+                <span>Privacy Policy</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
