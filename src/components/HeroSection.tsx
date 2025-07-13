@@ -5,20 +5,13 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   const handleStartJourney = () => {
-    setIsRedirecting(true);
-    
-    setTimeout(() => {
-      // Redirect to the coming soon page
-      window.location.href = '/comingsoon.html';
-      setIsRedirecting(false);
-    }, 500);
+    window.location.href = '/comingsoon.html';
   };
 
   return (
@@ -49,7 +42,7 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-2">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center min-h-[60vh] sm:min-h-screen">
           
           {/* Left Column - Content */}
@@ -77,31 +70,12 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 onClick={handleStartJourney}
-                disabled={isRedirecting}
-                className={`bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group ${
-                  isRedirecting ? 'opacity-75 cursor-not-allowed' : ''
-                }`}
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                {isRedirecting ? (
-                  <>
-                    <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Redirecting...
-                  </>
-                ) : (
-                  <>
-                    Start Your Journey
-                  </>
-                )}
+                Start Your Journey
               </Button>
           
             </div>
-
-            {/* Redirect Status */}
-            {isRedirecting && (
-              <p className="text-cyan-600 text-sm animate-pulse">
-                Redirecting to download page...
-              </p>
-            )}
           </div>
 
           {/* Right Column - App Landing Page Phone Mockup */}

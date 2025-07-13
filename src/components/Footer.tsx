@@ -43,7 +43,7 @@ const Footer = () => {
                     href="mailto:contact@tranquilai.com" 
                     className="text-slate-300 hover:text-white transition-colors duration-300"
                   >
-                    @tranquilai.in@gmail.com
+                    tranquilai.in@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -79,7 +79,7 @@ const Footer = () => {
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href="https://www.linkedin.com/company/tranquil-ai/"
+                href="https://www.linkedin.com/company/tranquilai01/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
