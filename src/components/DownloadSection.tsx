@@ -81,8 +81,7 @@ const DownloadSection = () => {
             </span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Join over 100,000 users who trust Tranquil AI for their daily mental health support. 
-            Start your journey to better wellbeing today.
+          More and more people are turning to Tranquil AI for daily mental health support. Start your journey to better wellbeing today.
           </p>
         </div>
 
