@@ -19,7 +19,7 @@ const AboutUs = () => {
     },
     {
       name: "Shreyas",
-      role: "Co-Founder & CFO",
+      role: "Co-Founder & COO",
       description: "Leading financial strategy and operations",
       image: "Pandit.jpg",
       expertise: "Financial Planning, Operations"
