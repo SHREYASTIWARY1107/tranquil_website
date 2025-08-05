@@ -1,20 +1,22 @@
 import React from 'react';
-import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { Heart, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const navigationLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', href: '/' },
+    { label: 'AI Therapist', href: '/ai-therapist' },
+    { label: 'Journaling', href: '/journaling' },
+    { label: 'Mood Tracker', href: '/mood-tracker' },
+    { label: 'Sleep & Audio', href: '/sleep-and-audio' },
   ];
 
-  const supportLinks = [
-    { label: 'Help Center', href: '#help' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Terms of Service', href: '#terms' },
-    { label: 'Security', href: '#security' }
+  const companyLinks = [
+    { label: 'Our Story', href: '/story' },
+    { label: 'Team', href: '/team' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
   ];
 
   return (
@@ -25,67 +27,135 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 gap-12 mb-12">
           
           {/* Company Info */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
-              <h3 className="text-white text-2xl font-bold">Tranquil AI</h3>
+              <div className="w-8 h-8 rounded-lg overflow-hidden">
+                <img 
+                  src="/lo.png" 
+                  alt="Tranquil AI Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-white text-xl font-bold">Tranquil AI</h3>
             </div>
-            <p className="text-slate-300 leading-relaxed max-w-md text-lg">
-              Revolutionizing mental wellness through AI-powered therapy, personalized insights, and evidence-based tools designed for your unique journey.
+            <p className="text-slate-300 leading-relaxed text-sm">
+              Your AI-powered companion for daily mental wellness. CBT-based therapy, journaling, and mood tracking for a calmer, more mindful you.
             </p>
             
-            {/* Contact Information */}
-            <div className="space-y-4">
-              <h4 className="text-white font-semibold text-lg">Contact Us</h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-cyan-400" />
-                  <a 
-                    href="mailto:contact@tranquilai.com" 
-                    className="text-slate-300 hover:text-white transition-colors duration-300"
-                  >
-                    tranquilai.in@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-cyan-400" />
-                  <span className="text-slate-300">
-                    Available Worldwide
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Socials Message and Icons */}
-          <div className="space-y-6 flex flex-col items-center justify-center lg:col-span-2">
-            <div className="text-slate-400 text-center text-lg font-medium">Follow us on our socials to keep up to date.</div>
-            <div className="flex items-center space-x-6">
+            {/* Social Links */}
+            <div className="flex items-center space-x-4">
               <a
-                href="https://twitter.com/tranquil_labs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-cyan-400 transition-colors"
-                aria-label="Tranquil AI Twitter"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="https://instagram.com/tranquil_ai"
+                href="https://www.instagram.com/tranquil_ai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-pink-400 transition-colors"
                 aria-label="Tranquil AI Instagram"
               >
-                <Instagram className="w-6 h-6" />
+                <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/company/tranquilai01/"
+                href="https://www.linkedin.com/company/tranquilai01"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
                 aria-label="Tranquil AI LinkedIn"
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://x.com/tranquil_labs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-cyan-400 transition-colors"
+                aria-label="Tranquil AI X (Twitter)"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="space-y-6">
+            <h4 className="text-white font-semibold">Features</h4>
+            <ul className="space-y-3">
+              {navigationLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-300 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Links */}
+          <div className="space-y-6">
+            <h4 className="text-white font-semibold">Company</h4>
+            <ul className="space-y-3">
+              {companyLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-300 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h4 className="text-white font-semibold">Contact</h4>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <Mail className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
+                <a 
+                  href="mailto:support@tranquilai.in" 
+                  className="text-slate-300 hover:text-white transition-colors duration-300 text-sm"
+                >
+                  support@tranquilai.in
+                </a>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                <span className="text-slate-300 text-sm leading-relaxed">
+                  B 401 WATERS EDGE, PIMPLE NILAKH<br />
+                  VISHALNAGAR, Sangavi<br />
+                  Pune City, Pune – 411027<br />
+                  Maharashtra, India
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* App Download Section */}
+        <div className="border-t border-slate-700 pt-8 mb-8">
+          <div className="text-center">
+            <h4 className="text-white font-semibold mb-4">Download Tranquil AI</h4>
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+              <a
+                href="https://apps.apple.com/in/app/tranquil-ai/id6738845854"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 text-white text-sm font-medium"
+              >
+                <span>Download for iOS</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.trnql.tranquil&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-6 py-3 bg-slate-700 border border-slate-600 rounded-lg hover:bg-slate-600 transition-all duration-300 text-white text-sm font-medium"
+              >
+                <span>Download for Android</span>
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -93,9 +163,16 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-700 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <div className="text-slate-400">
-              © 2025 Tranquil AI. All rights reserved.
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 text-sm">
+            <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4 text-slate-400">
+              <span>© 2025 Tranquil AI. All rights reserved.</span>
+              <span className="hidden lg:block">•</span>
+              <span>CIN: U86909PN2024PTCXXXXXX</span>
+            </div>
+            <div className="flex items-center space-x-2 text-slate-400">
+              <span>Made with</span>
+              <Heart className="w-4 h-4 text-emerald-400 fill-current" />
+              <span>in India</span>
             </div>
           </div>
         </div>
