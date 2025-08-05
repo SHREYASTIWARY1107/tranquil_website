@@ -37,7 +37,7 @@ const Index = () => {
   const features = [
     {
       icon: <Brain className="w-12 h-12 text-blue-600" />,
-      title: "AI Therapist",
+      title: "AI Companion",
       description: "CBT-powered daily therapy guidance with empathetic tone. Private, 24/7 chat model.",
       link: "/ai-therapist",
       color: "from-blue-50 to-blue-100"

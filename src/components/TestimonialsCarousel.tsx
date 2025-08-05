@@ -21,7 +21,7 @@ const TestimonialsCarousel = () => {
       company: "Tech Startup",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
       rating: 5,
-      text: "The AI therapist feature has been a game-changer for managing work stress. Having access to professional-grade support 24/7 has helped me maintain better mental health habits and work-life balance."
+      text: "The AI companion feature has been a game-changer for managing work stress. Having access to professional-grade support 24/7 has helped me maintain better mental health habits and work-life balance."
     },
     {
       name: "Emily Chen",

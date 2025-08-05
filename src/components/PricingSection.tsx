@@ -214,7 +214,7 @@ const defaultTiers = [
       },
       {
         name: "Limited AI Chat",
-        description: "5 conversations per week with AI therapist",
+        description: "5 conversations per week with AI companion",
         included: true,
       },
       {
@@ -248,7 +248,7 @@ const defaultTiers = [
         included: true,
       },
       {
-        name: "Unlimited AI Therapist",
+        name: "Unlimited AI Companion",
         description: "24/7 conversations with AI support",
         included: true,
       },

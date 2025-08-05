@@ -116,7 +116,7 @@ const PrivacyPolicy = () => {
 
                 <h4 className="text-lg font-semibold text-slate-900 mb-3">b. Health and Well-being Data</h4>
                 <ul className="list-disc pl-6 text-slate-600 mb-4">
-                  <li>Mood logs, journal entries, and interactions with the AI therapist (stored securely and never shared without consent)</li>
+                  <li>Mood logs, journal entries, and interactions with the AI companion (stored securely and never shared without consent)</li>
                 </ul>
 
                 <h4 className="text-lg font-semibold text-slate-900 mb-3">c. Usage Data</h4>

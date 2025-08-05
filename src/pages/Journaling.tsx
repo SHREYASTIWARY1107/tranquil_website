@@ -98,7 +98,7 @@ const Journaling = () => {
               <div className="relative flex justify-center">
                 <div className="relative">
                   <img 
-                    src="/journaling-1.png" 
+                    src="/app2.png" 
                     alt="Tranquil AI journaling interface with guided prompts and mood tracking"
                     className="mx-auto w-full max-w-[360px] h-auto rounded-2xl shadow-2xl"
                   />
@@ -239,7 +239,7 @@ const Journaling = () => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">Why This Matters</h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   Expressive writing and journaling have been extensively studied for their therapeutic benefits. 
@@ -251,12 +251,12 @@ const Journaling = () => {
                   emotions and helping us gain new perspectives on challenging situations. This process is 
                   particularly effective when combined with guided prompts and gratitude practices.
                 </p>
-              </div>
+              </article>
               
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">Scientific Evidence</h3>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-4 rounded-lg">
+                  <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Journal of Anxiety Disorders:</strong> Expressive writing significantly reduces 
                       anxiety symptoms and improves emotional regulation in clinical studies.
@@ -271,7 +271,7 @@ const Journaling = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-4 rounded-lg">
+                  <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Psychological Science:</strong> Writing about positive experiences and gratitude 
                       enhances well-being and life satisfaction more than neutral writing.
@@ -286,7 +286,7 @@ const Journaling = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-4 rounded-lg">
+                  <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Harvard Health:</strong> Regular journaling can help manage stress, reduce 
                       symptoms of depression, and improve immune function.
@@ -301,7 +301,7 @@ const Journaling = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>

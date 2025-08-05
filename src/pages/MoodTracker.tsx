@@ -103,7 +103,7 @@ const MoodTracker = () => {
               <div className="relative flex justify-center">
                 <div className="relative">
                   <img 
-                    src="/mood-happy.png" 
+                    src="/app3.png" 
                     alt="Tranquil AI mood tracker interface with emotional pattern visualization"
                     className="mx-auto w-full max-w-[360px] h-auto rounded-2xl shadow-2xl"
                   />
@@ -279,8 +279,8 @@ const MoodTracker = () => {
           </div>
         </section>
 
-        {/* Scientific Backing Section */}
-        <section className="py-20 px-6 lg:px-8 bg-white">
+                {/* Scientific Backing Section */}
+        <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
@@ -292,7 +292,7 @@ const MoodTracker = () => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">How It Helps</h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   Mood tracking increases emotional awareness and helps identify patterns between thoughts, 
@@ -304,12 +304,12 @@ const MoodTracker = () => {
                   warning signs of mental health episodes, and develop more effective coping strategies. This 
                   data-driven approach to emotional wellness empowers users to take control of their mental health.
                 </p>
-              </div>
+              </article>
               
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">Research Evidence</h3>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Clinical Psychology Review:</strong> Self-monitoring of mood and emotions 
                       significantly improves treatment outcomes in depression and anxiety disorders.
@@ -324,7 +324,7 @@ const MoodTracker = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Journal of Medical Internet Research:</strong> Digital mood tracking apps 
                       improve emotional self-awareness and facilitate better therapeutic conversations.
@@ -339,7 +339,7 @@ const MoodTracker = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Emotion Regulation Research:</strong> Regular mood monitoring enhances emotional 
                       intelligence and reduces the intensity of negative emotional episodes.
@@ -354,22 +354,22 @@ const MoodTracker = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto max-w-4xl text-center">
-            <blockquote className="text-2xl lg:text-3xl font-medium text-slate-900 mb-8">
-              "The mood tracker made me realize my stress triggers and helped me understand when I'm happiest. It's like having a personal emotional GPS."
-            </blockquote>
-            <cite className="text-lg text-slate-600">
-              — Chinmay D., Bangalore
-            </cite>
-          </div>
-        </section>
+        <section className="py-20 px-6 lg:px-8 bg-white">
+            <div className="container mx-auto max-w-4xl text-center">
+              <blockquote className="text-2xl lg:text-3xl font-medium text-slate-900 mb-8">
+                "The mood tracker made me realize my stress triggers and helped me understand when I'm happiest. It's like having a personal emotional GPS."
+              </blockquote>
+              <cite className="text-lg text-slate-600">
+                — Chinmay D., Bangalore
+              </cite>
+            </div>
+          </section>
 
         {/* CTA Section */}
         <section className="py-20 px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-emerald-600">

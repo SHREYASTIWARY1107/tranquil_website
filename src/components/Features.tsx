@@ -537,7 +537,7 @@ const Features = () => {
         />
       </motion.div>
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* AI Therapist Section */}
+        {/* AI Companion Section */}
         <motion.div className="mb-10 sm:mb-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.1 }}>
           <AITherapistSection />
         </motion.div>

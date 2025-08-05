@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const navigationLinks = [
     { label: 'Home', href: '/' },
-    { label: 'AI Therapist', href: '/ai-therapist' },
+    { label: 'AI Companion', href: '/ai-therapist' },
     { label: 'Journaling', href: '/journaling' },
     { label: 'Mood Tracker', href: '/mood-tracker' },
     { label: 'Sleep & Audio', href: '/sleep-and-audio' },
@@ -45,7 +45,16 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center space-x-4">
               <a
-                href="https://www.instagram.com/tranquil_ai/"
+                href="https://twitter.com/tranquil_labs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-cyan-400 transition-colors"
+                aria-label="Tranquil AI Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com/tranquil_ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-pink-400 transition-colors"
@@ -54,22 +63,13 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/company/tranquilai01"
+                href="https://www.linkedin.com/company/tranquilai01/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
                 aria-label="Tranquil AI LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://x.com/tranquil_labs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-cyan-400 transition-colors"
-                aria-label="Tranquil AI X (Twitter)"
-              >
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -143,19 +143,53 @@ const Footer = () => {
                 href="https://apps.apple.com/in/app/tranquil-ai/id6738845854"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 text-white text-sm font-medium"
+                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 text-white text-sm font-medium shadow-lg hover:shadow-xl"
               >
-                <span>Download for iOS</span>
-                <ExternalLink className="w-4 h-4" />
+                <span>📱 App Store</span>
               </a>
               <a
                 href="https://play.google.com/store/apps/details?id=com.trnql.tranquil&hl=en_IN"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-slate-700 border border-slate-600 rounded-lg hover:bg-slate-600 transition-all duration-300 text-white text-sm font-medium"
+                className="flex items-center space-x-2 px-6 py-3 bg-slate-700 border border-slate-600 rounded-lg hover:bg-slate-600 transition-all duration-300 text-white text-sm font-medium shadow-lg hover:shadow-xl"
               >
-                <span>Download for Android</span>
-                <ExternalLink className="w-4 h-4" />
+                <span>🤖 Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Social Links Section */}
+        <div className="border-t border-slate-700 pt-8 mb-8">
+          <div className="text-center">
+            <h4 className="text-white font-semibold mb-4">Follow Us</h4>
+            <div className="flex justify-center items-center space-x-6">
+              <a
+                href="https://www.instagram.com/tranquil_ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-pink-400 transition-colors transform hover:scale-110"
+                aria-label="Tranquil AI Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/tranquilai01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors transform hover:scale-110"
+                aria-label="Tranquil AI LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://x.com/tranquil_labs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-cyan-400 transition-colors transform hover:scale-110"
+                aria-label="Tranquil AI Twitter"
+              >
+                <Twitter className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -168,11 +202,11 @@ const Footer = () => {
               <span>© 2025 Tranquil AI. All rights reserved.</span>
               <span className="hidden lg:block">•</span>
               <span>CIN: U86909PN2024PTCXXXXXX</span>
+              <span className="hidden lg:block">•</span>
+              <span>support@tranquilai.in</span>
             </div>
             <div className="flex items-center space-x-2 text-slate-400">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-emerald-400 fill-current" />
-              <span>in India</span>
+              <span>Made in India 🇮🇳</span>
             </div>
           </div>
         </div>

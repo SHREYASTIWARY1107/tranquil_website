@@ -45,7 +45,7 @@ const AITherapistSection = () => {
                         <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white font-semibold text-sm sm:text-base">AI Therapist</h3>
+                        <h3 className="text-white font-semibold text-sm sm:text-base">AI Companion</h3>
                         <p className="text-blue-100 text-xs">Online • End-to-end encrypted</p>
                       </div>
                     </div>
@@ -127,7 +127,7 @@ const AITherapistSection = () => {
                 </h2>
                 
                 <p className="text-base sm:text-xl text-slate-600 leading-relaxed">
-                  Our AI therapist combines evidence-based therapeutic techniques with the latest advances in artificial intelligence to provide personalized mental health support.
+                  Our AI companion combines evidence-based therapeutic techniques with the latest advances in artificial intelligence to provide personalized mental health support.
                 </p>
               </div>
 

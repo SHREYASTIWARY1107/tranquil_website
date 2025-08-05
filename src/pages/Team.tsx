@@ -20,11 +20,11 @@ const Team = () => {
     {
       name: "Shreyas Tiwary",
       role: "Co-founder & CFO",
-      image: "/ari.png", // Using the existing image
+      image: "/Pandit.jpg",
       linkedin: "https://www.linkedin.com/in/shreyastiwary/",
       bio: "Passionate about making mental health accessible through technology. Handles financial strategy and business operations.",
       expertise: ["Financial Strategy", "Business Operations", "Market Analysis"],
-      education: "VIT"
+      education: "Recent Graduate"
     },
     {
       name: "Arihant Bharadwaj",
@@ -33,7 +33,7 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/arihant-bharadwaj/",
       bio: "Visionary leader focused on scaling mental health solutions. Drives product vision and company strategy.",
       expertise: ["Product Strategy", "Leadership", "Mental Health Advocacy"],
-      education: "VIT"
+      education: "Recent Graduate"
     },
     {
       name: "Ritwik Tripathi",
@@ -42,7 +42,7 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/ritwik-tripathi-740246225/",
       bio: "Technical architect behind Tranquil's AI systems. Ensures our technology remains cutting-edge and user-friendly.",
       expertise: ["AI Development", "System Architecture", "Machine Learning"],
-      education: "VIT"
+      education: "Recent Graduate"
     },
     {
       name: "Ashutosh Kala",
@@ -51,7 +51,7 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/kalaashutosh/",
       bio: "Operations expert ensuring smooth user experience and platform reliability. Focuses on growth and user satisfaction.",
       expertise: ["Operations Management", "User Experience", "Growth Strategy"],
-      education: "VIT"
+      education: "Recent Graduate"
     }
   ];
 

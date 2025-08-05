@@ -6,7 +6,7 @@ import { Brain, Shield, Clock, Heart } from 'lucide-react';
 const AITherapist = () => {
   useEffect(() => {
     // SEO Meta Tags
-    document.title = "AI Therapist - CBT-Powered Mental Health Support | Tranquil AI";
+    document.title = "AI Companion - CBT-Powered Mental Health Support | Tranquil AI";
     const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
     metaDescription.setAttribute('name', 'description');
     metaDescription.setAttribute('content', 'Experience 24/7 AI-powered therapy based on Cognitive Behavioral Therapy principles. Private, empathetic mental health support whenever you need it.');
@@ -30,7 +30,7 @@ const AITherapist = () => {
     {
       icon: <Clock className="w-8 h-8 text-blue-600" />,
       title: "24/7 Availability",
-      description: "Get support whenever you need it. Our AI therapist is available round the clock for your mental wellness needs."
+      description: "Get support whenever you need it. Our AI companion is available round the clock for your mental wellness needs."
     },
     {
       icon: <Heart className="w-8 h-8 text-emerald-600" />,
@@ -49,12 +49,12 @@ const AITherapist = () => {
           <div className="container mx-auto max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-6">
-                  Your Personal
-                  <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                    AI Therapist
-                  </span>
-                </h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-6">
+              Your Personal
+              <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                AI Companion
+              </span>
+            </h1>
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                   Experience the power of AI-driven therapy sessions built on Cognitive Behavioral Therapy (CBT) principles. Get personalized, empathetic support whenever you need it.
                 </p>
@@ -81,7 +81,7 @@ const AITherapist = () => {
                 <div className="relative">
                   <img 
                     src="/app1.png" 
-                    alt="Tranquil AI therapist interface showing CBT-based conversation"
+                    alt="Tranquil AI companion interface showing CBT-based conversation"
                     className="mx-auto w-full max-w-[360px] h-auto rounded-2xl shadow-2xl"
                   />
                   <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-emerald-400 rounded-full opacity-20 animate-pulse"></div>
@@ -97,7 +97,7 @@ const AITherapist = () => {
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-                Why Choose Our AI Therapist?
+                Why Choose Our AI Companion?
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                 Experience therapy that combines the latest in AI technology with proven psychological principles
@@ -155,7 +155,7 @@ const AITherapist = () => {
                   Start Conversations
                 </h3>
                 <p className="text-slate-600">
-                  Begin chatting with your AI therapist about your thoughts, feelings, and challenges.
+                  Begin chatting with your AI companion about your thoughts, feelings, and challenges.
                 </p>
               </div>
               
@@ -174,8 +174,8 @@ const AITherapist = () => {
           </div>
         </section>
 
-        {/* Scientific Backing Section */}
-        <section className="py-20 px-6 lg:px-8 bg-white">
+                {/* Scientific Backing Section */}
+        <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
@@ -187,7 +187,7 @@ const AITherapist = () => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">How It Helps</h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   AI-powered therapy provides immediate, accessible mental health support using evidence-based 
@@ -199,12 +199,12 @@ const AITherapist = () => {
                   for treating anxiety, depression, and stress-related disorders. The key advantage is 
                   accessibility – getting help when and where you need it most.
                 </p>
-              </div>
+              </article>
               
-              <div>
+              <article>
                 <h3 className="text-2xl font-semibold text-slate-900 mb-4">Scientific Backing</h3>
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>WHO Mental Health Report:</strong> Digital interventions can significantly reduce 
                       treatment gaps in mental healthcare globally.
@@ -219,7 +219,7 @@ const AITherapist = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>APA Research on CBT:</strong> Cognitive Behavioral Therapy is one of the most 
                       effective treatments for anxiety and depression disorders.
@@ -234,7 +234,7 @@ const AITherapist = () => {
                     </a>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-blue-50 to-emerald-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg border border-blue-100">
                     <p className="text-slate-700 mb-2">
                       <strong>Digital Health Studies:</strong> AI-powered mental health tools show comparable 
                       efficacy to traditional therapy in clinical trials.
@@ -249,22 +249,22 @@ const AITherapist = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto max-w-4xl text-center">
-            <blockquote className="text-2xl lg:text-3xl font-medium text-slate-900 mb-8">
-              "The AI therapist feels incredibly understanding and never judges. It's like having a supportive friend who's always there when I need to talk through my problems."
-            </blockquote>
-            <cite className="text-lg text-slate-600">
-              — Priya M., Bangalore
-            </cite>
-          </div>
-        </section>
+        <section className="py-20 px-6 lg:px-8 bg-white">
+            <div className="container mx-auto max-w-4xl text-center">
+              <blockquote className="text-2xl lg:text-3xl font-medium text-slate-900 mb-8">
+                "The AI companion feels incredibly understanding and never judges. It's like having a supportive friend who's always there when I need to talk through my problems."
+              </blockquote>
+              <cite className="text-lg text-slate-600">
+                — Priya M., Bangalore
+              </cite>
+            </div>
+          </section>
 
         {/* CTA Section */}
         <section className="py-20 px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-emerald-600">
@@ -273,7 +273,7 @@ const AITherapist = () => {
               Ready to Start Your Healing Journey?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Join thousands of users who have found support and guidance through our AI therapist.
+              Join thousands of users who have found support and guidance through our AI companion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

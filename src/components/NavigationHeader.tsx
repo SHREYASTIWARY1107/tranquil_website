@@ -12,7 +12,7 @@ const NavigationHeader = () => {
     { 
       label: 'Features',
       dropdown: [
-        { path: '/ai-therapist', label: 'AI Therapist' },
+        { path: '/ai-therapist', label: 'AI Companion' },
         { path: '/journaling', label: 'Journaling' },
         { path: '/mood-tracker', label: 'Mood Tracker' },
         { path: '/sleep-and-audio', label: 'Sleep & Audio' },
