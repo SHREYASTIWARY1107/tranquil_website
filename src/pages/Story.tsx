@@ -22,7 +22,7 @@ const Story = () => {
       title: "Founded by Recent Graduates",
       description: "Four passionate recent graduates came together with a vision to democratize mental health care through AI technology.",
       icon: <Users className="w-8 h-8 text-blue-600" />,
-      image: "/achievements/founding-team.png",
+      image: "/achievements/recentgrads.jpeg",
       stats: "4 Co-founders Full-Time"
     },
     {
@@ -30,7 +30,7 @@ const Story = () => {
       title: "ThingQbator Recognition & Grant",
       description: "Recognized among India's top student-led startups by ThingQbator, a NASSCOM program powered by Cisco. Awarded a grant of ₹5 lakhs for innovation in mental wellness.",
       icon: <Award className="w-8 h-8 text-yellow-600" />,
-      image: "/achievements/nasscom-award.png",
+      image: "/achievements/thingqbator.png",
       stats: "₹5 Lakh Grant Awarded"
     },
     {
@@ -38,7 +38,7 @@ const Story = () => {
       title: "First 1000 Users",
       description: "Reached our first milestone of 1,000 active users who found value in our AI-powered mental wellness platform.",
       icon: <Target className="w-8 h-8 text-emerald-600" />,
-      image: "/achievements/user-milestone.png",
+      image: "/achievements/first1000.jpeg",
       stats: "1,000+ Happy Users"
     },
     {
@@ -46,7 +46,7 @@ const Story = () => {
       title: "Premium Launch Coming Soon",
       description: "Preparing to launch our premium version with exclusive audio experiences and advanced personalization tools.",
       icon: <Calendar className="w-8 h-8 text-purple-600" />,
-      image: "/achievements/premium-launch.png",
+      image: "/achievements/image.png",
       stats: "Next Week"
     }
   ];
