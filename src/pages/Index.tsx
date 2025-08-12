@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import LoadingScreen from '../components/LoadingScreen';
 import NavigationHeader from '../components/NavigationHeader';
 import Footer from '../components/Footer';
 import { Brain, BookOpen, BarChart3, Headphones, Star, Users, Clock, Heart } from 'lucide-react';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     // SEO Meta Tags
     document.title = "Tranquil AI – India's Mental Health App | CBT Therapy, Journaling & Mood Tracker";
@@ -16,21 +13,6 @@ const Index = () => {
     metaDescription.setAttribute('content', 'Tranquil AI is a mental wellness companion offering CBT-powered therapy, mood tracking, journaling, and guided sleep — built by graduates committed to mental health accessibility.');
     if (!document.querySelector('meta[name="description"]')) {
       document.head.appendChild(metaDescription);
-    }
-
-    // Only show loading screen if this is a fresh visit (not navigation)
-    const isFirstVisit = !sessionStorage.getItem('hasVisited');
-    
-    if (isFirstVisit) {
-      setIsLoading(true);
-      sessionStorage.setItem('hasVisited', 'true');
-      
-    // Loading sequence lasts 5 seconds + 1 second fade out
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 6000);
-
-    return () => clearTimeout(timer);
     }
   }, []);
 
@@ -115,10 +97,6 @@ const Index = () => {
       description: "Personal growth documented"
     }
   ];
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div className="min-h-screen overflow-x-hidden">
