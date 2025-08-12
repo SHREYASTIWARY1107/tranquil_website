@@ -123,8 +123,6 @@ const SleepAndAudio = () => {
                     alt="Tranquil AI sleep and audio therapy interface with meditation options"
                     className="mx-auto w-full max-w-[360px] h-auto rounded-2xl shadow-2xl"
                   />
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
-                  <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
                 </div>
               </div>
             </div>

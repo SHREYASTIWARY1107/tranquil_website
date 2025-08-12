@@ -13,6 +13,7 @@ import Story from "./pages/Story";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GetTheApp from "./pages/GetTheApp";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/get-the-app" element={<GetTheApp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TooltipProvider>

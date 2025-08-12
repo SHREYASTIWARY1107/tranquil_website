@@ -80,10 +80,7 @@ const PhoneMockup = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-[2.5rem] pointer-events-none"></div>
       </div>
 
-      {/* Floating Elements Around Phone */}
-      <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-400/30 rounded-full animate-pulse"></div>
-      <div className="absolute -bottom-6 -right-6 w-6 h-6 bg-purple-400/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute top-1/2 -right-8 w-4 h-4 bg-cyan-400/30 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+
     </div>
   );
 };

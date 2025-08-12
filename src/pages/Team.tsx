@@ -230,8 +230,6 @@ const Team = () => {
                     alt="Tranquil AI team working together on mental wellness innovation"
                     className="mx-auto w-full max-w-[400px] h-auto rounded-2xl shadow-2xl"
                   />
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-emerald-400 rounded-full opacity-20 animate-pulse"></div>
-                  <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
                 </div>
               </div>
             </div>

@@ -21,6 +21,7 @@ const NavigationHeader = () => {
     { path: '/story', label: 'Our Story' },
     { path: '/team', label: 'Team' },
     { path: '/contact', label: 'Contact' },
+    { path: '/get-the-app', label: 'Get the App' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

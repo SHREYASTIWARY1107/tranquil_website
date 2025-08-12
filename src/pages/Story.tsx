@@ -18,7 +18,7 @@ const Story = () => {
   }, []);
   const milestones = [
     {
-      year: "2024",
+      year: "2025",
       title: "Founded by Recent Graduates",
       description: "Four passionate recent graduates came together with a vision to democratize mental health care through AI technology.",
       icon: <Users className="w-8 h-8 text-blue-600" />,
@@ -26,7 +26,7 @@ const Story = () => {
       stats: "4 Co-founders Full-Time"
     },
     {
-      year: "2024",
+      year: "2025",
       title: "ThingQbator Recognition & Grant",
       description: "Recognized among India's top student-led startups by ThingQbator, a NASSCOM program powered by Cisco. Awarded a grant of ₹5 lakhs for innovation in mental wellness.",
       icon: <Award className="w-8 h-8 text-yellow-600" />,
@@ -34,7 +34,7 @@ const Story = () => {
       stats: "₹5 Lakh Grant Awarded"
     },
     {
-      year: "2024",
+      year: "2025",
       title: "First 1000 Users",
       description: "Reached our first milestone of 1,000 active users who found value in our AI-powered mental wellness platform.",
       icon: <Target className="w-8 h-8 text-emerald-600" />,
