@@ -1,2 +1,4 @@
 /.well-known/* /.well-known/:splat 200
+
+# SPA fallback - all routes should go to index.html for client-side routing
 /* /index.html 200
