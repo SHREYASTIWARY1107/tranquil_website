@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AITherapist from "./pages/AITherapist";
@@ -17,6 +18,22 @@ import GetTheApp from "./pages/GetTheApp";
 
 const queryClient = new QueryClient();
 
+function GitHubPagesRedirectHandler() {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Handle GitHub Pages SPA routing redirect
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      const url = new URL(redirect);
+      navigate(url.pathname + url.search + url.hash, { replace: true });
+    }
+  }, [navigate]);
+  
+  return null;
+}
+
 function App() {
   // Immediately return null for .well-known paths
   if (window.location.pathname.startsWith('/.well-known/')) {
@@ -28,6 +45,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <GitHubPagesRedirectHandler />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ai-therapist" element={<AITherapist />} />
