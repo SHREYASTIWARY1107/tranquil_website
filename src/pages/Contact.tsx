@@ -193,7 +193,6 @@ ${formData.fullName}`;
                 className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-8 py-4 text-lg"
                 onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Calendar className="w-5 h-5 mr-2" />
                 Book a Demo
               </Button>
               <Button 
@@ -202,7 +201,6 @@ ${formData.fullName}`;
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg"
                 onClick={() => document.getElementById('contact-info')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <MessageSquare className="w-5 h-5 mr-2" />
                 Contact Sales Team
               </Button>
             </motion.div>
