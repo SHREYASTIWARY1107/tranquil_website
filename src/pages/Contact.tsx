@@ -394,7 +394,6 @@ ${formData.fullName}`;
                         size="lg"
                         className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-12 py-4 text-lg"
                       >
-                        <Mail className="w-5 h-5 mr-2" />
                         Open Email Client
                       </Button>
                     </div>
